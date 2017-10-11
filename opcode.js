@@ -115,8 +115,6 @@ function OperationCodeBufferService(log){
 
     return true;
   }
-
-
 }
 
 module.exports = OperationCodeBufferService;
