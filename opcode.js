@@ -76,12 +76,15 @@ function OperationCodeBufferService(log){
      * in the Operation Code buffer. If a bit is zero, the corresponding entry is cleared. If a bit is one, the
      * corresponding entry is unchanged. 
      */
-    var mask = state.clear_mask;
-    for(var bit = 0; bit < 8; bit++){
+    var mask = state.get('clear_mask');
+    for(var bit = 0; bit < 8; bit++)
+	{
       if((mask & Math.pow(2, bit)).toString() === '0')
         if(!this.setBufferValueAt(bit, ' '))
           return false;
     }
+    return true;
+	
 
     /**
      * The buffer contains eight bytes. This entry sets the specified bytes to one of the values from keys[]. If a bit is one, the
